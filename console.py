@@ -6,6 +6,7 @@ A console application
 
 
 import cmd
+from datetime import datetime
 import models
 from models.base_model import BaseModel
 import shlex
@@ -136,6 +137,44 @@ class HBNBCommand(cmd.Cmd):
 		Prints all string representation based or not on the class name(help)
 		"""
 		print("Prints string representation based or not on the class name\n")
+	
+	def do_update(self, line):
+		"""
+		Updates an instance based on the class name and id
+		"""
+		args = shlex.split(line)
+		args_size = len(args)
+		if args_size == 0:
+			print('** class name missing **')
+		elif args[0] not in self.command_list:
+			print("** class doesn't exist **")
+		elif args_size == 1:
+			print('** instance id missing **')
+		else:
+			key = args[0] + "." + args[1]
+			new_inst = models.storage.all().get(key)
+			if new_inst is None:
+				print('** no instance found **')
+			elif args_size == 2:
+				print('** attribute name missing **')
+			elif args_size == 3:
+				print('** value missing **')
+			else:
+				args[3] = self.digitize_value(args[3])
+				setattr(new_inst, args[2], args[3])
+				setattr(new_inst, 'updated_at', datetime.now())
+				models.storage.save()
+
+	def digitize_value(self, value):
+		"""
+		Checks a value for an update
+		"""
+		if value.isdigit():
+			return int(value)
+		elif value.replace('.', '', 1).isdigit():
+			return float(value)
+
+		return value
 
 if __name__ == '__main__':
 	HBNBCommand().cmdloop()
