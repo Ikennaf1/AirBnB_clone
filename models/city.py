@@ -10,8 +10,8 @@ from models.base_model import BaseModel
 
 
 class City(BaseModel):
-	"""
-	City model that inherits from Basemodel class
-	"""
-	state_id = ""
-	name = ""
+    """
+    City model that inherits from Basemodel class
+    """
+    state_id = ""
+    name = ""

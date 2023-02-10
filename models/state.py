@@ -10,7 +10,7 @@ from models.base_model import BaseModel
 
 
 class State(BaseModel):
-	"""
-	State model that inherits from Basemodel class
-	"""
-	name = ""
+    """
+    State model that inherits from Basemodel class
+    """
+    name = ""

@@ -10,7 +10,7 @@ from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-	"""
-	Amenity model that inherits from Basemodel class
-	"""
-	name = ""
+    """
+    Amenity model that inherits from Basemodel class
+    """
+    name = ""

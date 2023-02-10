@@ -10,10 +10,10 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
-	"""
-	User model that inherits from Basemodel class
-	"""
-	email = ""
-	password = ""
-	first_name = ""
-	last_name = ""
+    """
+    User model that inherits from Basemodel class
+    """
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
