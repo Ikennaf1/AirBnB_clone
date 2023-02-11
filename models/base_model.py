@@ -57,4 +57,3 @@ class BaseModel:
         model["updated_at"] = self.updated_at.isoformat()
 
         return model
-
