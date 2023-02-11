@@ -14,3 +14,4 @@ class Amenity(BaseModel):
     Amenity model that inherits from Basemodel class
     """
     name = ""
+

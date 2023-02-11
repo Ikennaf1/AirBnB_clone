@@ -14,3 +14,4 @@ class State(BaseModel):
     State model that inherits from Basemodel class
     """
     name = ""
+

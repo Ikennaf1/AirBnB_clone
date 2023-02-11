@@ -55,3 +55,4 @@ class FileStorage:
                 json_dict = json.loads(f.read())
                 for key, val in json_dict.items():
                     self.__objects[key] = eval(val["__class__"])(**val)
+
