@@ -132,8 +132,8 @@ class HBNBCommand(cmd.Cmd):
             for key in keys:
                 if key.startswith(class_name):
                     print(str(objs[key]))
-                else:
-                    print("** class doesn't exist **")
+        else:
+            print("** class doesn't exist **")
 
     def help_all(self):
         """
