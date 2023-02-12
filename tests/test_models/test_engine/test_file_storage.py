@@ -11,6 +11,7 @@ from models.review import Review
 from models.state import State
 from models.user import User
 import os
+import pep8
 import unittest
 import uuid
 
@@ -35,6 +36,12 @@ class TestFileStorage(unittest.TestCase):
         """ if delete the file """
         if os.path.exists("file.json"):
             os.remove("file.json")
+
+    def test_pep8_FileStorage(self):
+        """Tests pep8 style"""
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def tearDown(self):
         """teardown"""
@@ -108,3 +115,12 @@ class TestFileStorage(unittest.TestCase):
             for line in r:
                 self.assertEqual(line, "{}")
         self.assertIs(self.storage.reload(), None)
+
+    def test_pep8_conformance_file_storage(self):
+        """
+        Test that we conform to PEP8.
+        """
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(result.total_errors, 0,
+                         "Found code style errors (and warnings).")
